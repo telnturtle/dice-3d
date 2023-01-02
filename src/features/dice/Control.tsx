@@ -1,7 +1,16 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import { useAppDispatch } from '../../app/hooks'
-import { changeMatrix, rotateXCCW, rotateXCW, rotateYCCW, rotateYCW, rotateZCCW, rotateZCW } from './diceSlice'
+import {
+  changeMatrix,
+  rotateXCCW,
+  rotateXCW,
+  rotateYCCW,
+  rotateYCW,
+  rotateZCCW,
+  rotateZCW,
+  toggleUntilt,
+} from './diceSlice'
 import { Matrix } from '../../common/Matrix'
 import { _side } from './util'
 import { outwrapCss, wrapCss } from './Dice'
@@ -74,6 +83,7 @@ export function Control() {
           <button onClick={() => setShaking(true)} disabled={shaking}>
             Shaking!
           </button>
+          <button onClick={() => dispatch(toggleUntilt())}>Toggle tilt</button>
         </div>
         <div css={outwrapCss}>
           {Object.entries(_side).map(([side, matrices]) =>
