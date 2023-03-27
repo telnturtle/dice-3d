@@ -41,8 +41,7 @@ export function Dice(): ReactElement {
           justify-content: space-evenly;
         `}
       >
-        <D6 matrix3d={makeMatrix3dTextFromMatrix(tiltMatrix(matrix))} />
-        <D6 matrix3d={makeMatrix3dTextFromMatrix(matrix)} />
+        <D6 matrix3d={makeMatrix3dTextFromMatrix(untilt ? tiltMatrix(matrix) : matrix)} />
         <D6 matrix3d={makeMatrix3dTextFromMatrix(untilt ? matrix : tiltMatrix(matrix))} />
       </div>
       <div css={wrapCss}>
